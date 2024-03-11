@@ -1,0 +1,18 @@
+.task-table {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.btn-img {
+    height: 20px;
+    margin: 8px;
+}
+.btn-img:hover {
+    cursor: pointer;
+}
