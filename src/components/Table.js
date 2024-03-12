@@ -33,6 +33,7 @@ function Table() {
             </tr>
             <tr>
                 <td>1</td>
+                
                 <td>Make todo List</td>
                 <td>
                     <img src={Delete} className='btn-img'></img>
