@@ -7,6 +7,14 @@
 table {
   width: 100%;
   margin-top: 20px;
+  table-layout: auto;
+  border-collapse: collapse;
+  border-radius: 100px;
+}
+.tbody {
+    background-color: white;
+    font-size: medium;
+    font-family: sans-serif;
 }
 
 .btn-img {
@@ -15,4 +23,14 @@ table {
 }
 .btn-img:hover {
     cursor: pointer;
+}
+
+.thead {
+    background-color: whitesmoke;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: medium;
+}
+
+th {
+  padding: 10px;
 }
