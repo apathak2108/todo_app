@@ -5,18 +5,32 @@ import Table from "./components/Table";
 function App() {
   const [input, setInput] = useState("");
   const [tasks, setTasks] = useState([]);
-  
-  const handleSubmit = () => {
-    console.log(input);
-    setInput("");
-  };
+  const [editIndex, setEditIndex] = useState(null); 
 
   const handleAddTask = () => {
-    if (input.trim() !== '')
-      setTasks([...tasks, input]);
+    if (input.trim() !== '') {
+      if (editIndex !== null) { 
+        const updatedTasks = [...tasks];
+        updatedTasks[editIndex] = input;
+        setTasks(updatedTasks);
+        setEditIndex(null); 
+      } else {
+        setTasks([...tasks, input]); 
+      }
+    }
     setInput('');
   };
-  
+
+  const handleEditButton = (index, task) => {
+    setInput(task); 
+    setEditIndex(index); 
+  };
+
+  const handleDeleteTask = (index) => {
+    const updatedTasks = [...tasks];
+    updatedTasks.splice(index, 1);
+    setTasks(updatedTasks);
+  };
 
   return (
     <div className="main-container">
@@ -33,14 +47,13 @@ function App() {
           />
         </div>
         <button className="input-btn" onClick={handleAddTask}>
-          Add
+          {editIndex !== null ? "Edit Task" : "Add"} 
         </button>
       </div>
       <div>
-        <Table tasks={tasks}/>
+        <Table tasks={tasks} onDelete={handleDeleteTask} onEdit={handleEditButton}/>
       </div>
     </div>
   );
 }
-
 export default App;
