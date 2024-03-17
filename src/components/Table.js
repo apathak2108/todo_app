@@ -3,7 +3,7 @@ import "./Table.css";
 import Delete from "../../src/delete.png";
 import Edit from "../../src/edit.png";
 
-function Table({tasks, onDelete, onEdit}) {
+function Table({ tasks, onDelete, onEdit }) {
   return (
     <div className="task-table">
       <table>
@@ -18,8 +18,16 @@ function Table({tasks, onDelete, onEdit}) {
               <td>{index + 1}</td>
               <td>{task}</td>
               <td>
-                <img src={Delete} className="btn-img" onClick={() => onDelete(index)}></img>
-                <img src={Edit} className="btn-img" onClick={() => onEdit(index, task)}></img>
+                <img
+                  src={Delete}
+                  className="btn-img"
+                  onClick={() => onDelete(index)}
+                />
+                <img
+                  src={Edit}
+                  className="btn-img"
+                  onClick={() => onEdit(index, task)}
+                />
               </td>
             </tr>
           ))}
@@ -30,5 +38,3 @@ function Table({tasks, onDelete, onEdit}) {
 }
 
 export default Table;
-
-
