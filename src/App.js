@@ -1,6 +1,12 @@
 import { useState , useEffect } from "react";
 import "./App.css";
 import Table from "./components/Table";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import './components/Login';
+import './components/Register';
+import Login from "./components/Login";
+import Register from "./components/Register";
+import Home from "./Home";
 
 function App() {
   const [input, setInput] = useState("");
@@ -8,15 +14,15 @@ function App() {
   const [editIndex, setEditIndex] = useState(null);
   const [apiResponse, setApiResponse] = useState(null);
 
-  useEffect(() => {
-    fetch('https://susan-hacker-solomon-alike.trycloudflare.com/api/1.0/feature/config')
-    .then(response => response.json())
-    .then(data => {
-      setApiResponse(data);
-    });
-  });
+  // useEffect(() => {
+  //   fetch('https://susan-hacker-solomon-alike.trycloudflare.com/api/1.0/feature/config')
+  //   .then(response => response.json())
+  //   .then(data => {
+  //     setApiResponse(data);
+  //   });
+  // });
 
-  const isEditable = apiResponse ? apiResponse.isEditable : false;
+  // const isEditable = apiResponse ? apiResponse.isEditable : false;
 
   const handleAddTask = () => {
     if (input !== "") {
@@ -57,7 +63,16 @@ function App() {
   }
 
   return (
-    <div className="main-container">
+    <>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
+
+    {/* <div className="main-container">
       <div>
         <div className="heading">
           <h1>ToDo List Web Application</h1>
@@ -85,7 +100,8 @@ function App() {
       onDelete={handleDeleteOnFalse}
       onEdit={handleEditOnFalse} />}
       </div>
-    </div>
+    </div> */}
+    </>
   );
 }
 export default App;
