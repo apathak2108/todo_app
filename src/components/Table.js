@@ -4,11 +4,16 @@ import Delete from "../../src/delete.png";
 import Edit from "../../src/edit.png";
 
 function Table({ tasks, onDelete, onEdit }) {
+  const curr_date = () => {
+    const date = new Date();
+    return date.toDateString();
+  }
   return (
     <div className="task-table">
       <table>
         <thead className="thead">
           <th>S. No.</th>
+          <th>Date</th>
           <th>Pending tasks</th>
           <th>Action</th>
         </thead>
@@ -16,6 +21,7 @@ function Table({ tasks, onDelete, onEdit }) {
           {tasks.map((task, index) => (
             <tr key={index}>
               <td>{index + 1}</td>
+              <td>{curr_date()}</td>
               <td>{task}</td>
               <td>
                 <img
