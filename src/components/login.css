@@ -3,7 +3,7 @@ body {
 }
 
 h3 {
-    color: aliceblue;
+    color: black;
 }
 
 .login-page {
@@ -11,10 +11,14 @@ h3 {
     box-shadow: 0 4px 8px 0 rgba(75, 72, 72, 0.2);
     justify-content: center;
     text-align: center;
-    height: 40vh;
-    width: 30vw;
+    padding: 1.5rem;
+    display: flex;
+    width: 70%;
     border: 10px;
     border-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
 
 }
 
@@ -27,10 +31,9 @@ h3 {
 .card {
     justify-content: center;
     text-align: center;
-    /* position: absolute; */
     display: block;
-    margin-top: 50%;
     align-items: center;
+    background-color: hsl(0, 0%, 80%);
 }
 
 .login-submit-btn {
