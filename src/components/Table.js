@@ -8,21 +8,30 @@ function Table({ tasks, onDelete, onEdit }) {
     const date = new Date();
     return date.toDateString();
   }
+
+  const curr_time = () => {
+    const time = new Date();
+    const current_time = time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+    return current_time;
+  }
+
   return (
     <div className="task-table">
       <table>
         <thead className="thead">
           <th>S. No.</th>
           <th>Date</th>
+          <th>Time</th>
           <th>Pending tasks</th>
           <th>Action</th>
         </thead>
         <tbody className="tbody">
-          {tasks.map((task, index) => (
+          {tasks?.map((task, index) => (
             <tr key={index}>
               <td>{index + 1}</td>
               <td>{curr_date()}</td>
-              <td>{task}</td>
+              <td>{ curr_time() }</td>
+              <td>{task?.value}</td>
               <td>
                 <img
                   src={Delete}
