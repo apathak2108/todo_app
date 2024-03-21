@@ -49,11 +49,11 @@ function Home() {
             onChange={(e) => setInput(e.target.value)}
           />
         </div>
-        <button className="input-btn" onClick={handleAddTask}>
+        <button className="input-btn"  onClick={handleAddTask}>
           {editIndex !== null ? "Edit Task" : "Add"}
         </button>
       </div>
-      <Table tasks={tasks} onDelete={handleDeleteTask} onEdit={handleAddTask} /> 
+      <Table tasks={tasks} onDelete={handleDeleteTask} onEdit={handleEditButton} /> 
     </div>
   );
 }
